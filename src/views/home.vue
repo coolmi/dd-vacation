@@ -1,50 +1,75 @@
 <template>
-  <div>
-    <div class="title_card">
-      <div class="title_tip">资质到期提醒</div>
-      <div class="title_content">您的营业执照还有30天到期!</div>
-      <div class="title_footer">>>>查看详情</div>
-    </div>
+  <div style="height: 100%;">
   </div>
 </template>
 
 <script>
+  // import api from '../api/api'
+  import whole from '../lib/whole'
   export default {
-    data() {
+    data () {
       return {
       }
     },
+    created () {
+    },
     methods: {
-      longtimedemand () {
-        this.$router.push('/longtimedemand')
+      // 报表管理
+      toReport () {
+        this.$router.push({ path: '/reportList' })
       },
-      askdemand () {
-        this.$router.push('/askdemand')
+      // 环控数据
+      hkInfoShow () {
+        this.$router.push({ path: '/environmentalData' })
+      },
+      // 环控对比
+      toCons () {
+        this.$router.push({ path: '/environContrast' })
+      },
+      // 环控配置跳转
+      checkHk() {
+        this.$router.push({ path: '/table' })
+      },
+      // 警告信息
+      hkWarnShow () {
+        this.$router.push({ path: '/warning' })
+      },
+      // 生产录入
+      fhhkWarnShow () {
+        this.$router.push({ path: '/productionEntry' })
+      },
+      // 天气列表
+      toWeather () {
+        this.$router.push({ path: '/weather' })
+      },
+      showError() {
+        whole.showTop('当前功能暂未开通,敬请期待')
+      },
+      // 孵化环控信息
+      toFhhk () {
+        this.$router.push({ path: '/hatch/encontrolchioce' })
+      },
+      // 孵化报表管理
+      toFhReport () {
+        // alert(1)
+        this.$router.push({ path: '/reportForms/fhselect1' })
+      },
+      // 种禽生产指标查看
+      toProduction () {
+        this.$router.push({ path: '/production/production' })
+        // window.location.href = encodeURI(baseConfig.baseURL + '/production/production?dd_orientation=landscape&dd_full_screen=true')
+      },
+      // 种禽产量预算
+      toBudget () {
+        this.$router.push({ path: '/budget/budget' })
+      },
+      // 孵化生产指标
+      toFhProduction () {
+        this.$router.push({ path: '/fhproduction/fhproduction' })
       }
     }
   }
 </script>
-<style lang="less">
-  .title_card {
-    padding: 10px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  .title_tip {
-    text-align: left;
-    font-weight: bold;
-    font-size: 15px;
-    margin-left: 10px;
-  }
-  .title_content {
-    text-indent: 20px;
-    font-size: 15px;
-  }
-  .title_footer {
-    text-align: right;
-    font-size: 15px;
-    margin-right: 10px;
-    color: #999999;
-  }
+
+<style scoped lang="less">
 </style>
